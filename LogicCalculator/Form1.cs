@@ -74,5 +74,11 @@ namespace LogicCalculator
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void about_button_Click(object sender, EventArgs e)
+        {
+            Form f = new About();
+            f.ShowDialog();
+        }
     }
 }

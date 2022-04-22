@@ -130,6 +130,7 @@ namespace LogicCalculator
             this.about_button.TabIndex = 49;
             this.about_button.Text = "О программе";
             this.about_button.UseVisualStyleBackColor = true;
+            this.about_button.Click += new System.EventHandler(this.about_button_Click);
             // 
             // calc_button
             // 
