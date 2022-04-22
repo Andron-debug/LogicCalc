@@ -64,7 +64,7 @@ namespace LogicCalculator
             this.y_checkBox = new System.Windows.Forms.CheckBox();
             this.z_checkBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
+            this.true_table_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // typeComboBox
@@ -84,19 +84,21 @@ namespace LogicCalculator
             // 
             this.input_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.input_textBox.Enabled = false;
+            this.input_textBox.BackColor = System.Drawing.Color.White;
             this.input_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.input_textBox.Location = new System.Drawing.Point(7, 45);
             this.input_textBox.Name = "input_textBox";
+            this.input_textBox.ReadOnly = true;
             this.input_textBox.Size = new System.Drawing.Size(776, 27);
             this.input_textBox.TabIndex = 1;
             // 
             // resultTextBox
             // 
-            this.resultTextBox.Enabled = false;
+            this.resultTextBox.BackColor = System.Drawing.Color.White;
             this.resultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.resultTextBox.Location = new System.Drawing.Point(7, 115);
             this.resultTextBox.Name = "resultTextBox";
+            this.resultTextBox.ReadOnly = true;
             this.resultTextBox.Size = new System.Drawing.Size(100, 27);
             this.resultTextBox.TabIndex = 3;
             // 
@@ -122,7 +124,7 @@ namespace LogicCalculator
             // 
             // about_button
             // 
-            this.about_button.Location = new System.Drawing.Point(2, 483);
+            this.about_button.Location = new System.Drawing.Point(7, 475);
             this.about_button.Name = "about_button";
             this.about_button.Size = new System.Drawing.Size(105, 23);
             this.about_button.TabIndex = 49;
@@ -134,7 +136,7 @@ namespace LogicCalculator
             this.calc_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.calc_button.Location = new System.Drawing.Point(462, 362);
             this.calc_button.Name = "calc_button";
-            this.calc_button.Size = new System.Drawing.Size(171, 36);
+            this.calc_button.Size = new System.Drawing.Size(184, 36);
             this.calc_button.TabIndex = 48;
             this.calc_button.Text = "Вычислить";
             this.calc_button.UseVisualStyleBackColor = true;
@@ -455,22 +457,23 @@ namespace LogicCalculator
             this.label2.TabIndex = 59;
             this.label2.Text = "Значения";
             // 
-            // button17
+            // true_table_button
             // 
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.button17.Location = new System.Drawing.Point(462, 404);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(171, 76);
-            this.button17.TabIndex = 60;
-            this.button17.Text = "Таблица истинности";
-            this.button17.UseVisualStyleBackColor = true;
+            this.true_table_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
+            this.true_table_button.Location = new System.Drawing.Point(462, 404);
+            this.true_table_button.Name = "true_table_button";
+            this.true_table_button.Size = new System.Drawing.Size(184, 95);
+            this.true_table_button.TabIndex = 60;
+            this.true_table_button.Text = "Таблица истинности";
+            this.true_table_button.UseVisualStyleBackColor = true;
+            this.true_table_button.Click += new System.EventHandler(this.true_table_button_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 507);
-            this.Controls.Add(this.button17);
+            this.Controls.Add(this.true_table_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.z_checkBox);
             this.Controls.Add(this.y_checkBox);
@@ -551,7 +554,7 @@ namespace LogicCalculator
         private System.Windows.Forms.CheckBox y_checkBox;
         private System.Windows.Forms.CheckBox z_checkBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button true_table_button;
     }
 }
 

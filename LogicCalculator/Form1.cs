@@ -22,8 +22,6 @@ namespace LogicCalculator
             typeComboBox.SelectedIndex = 0;
             for (int i = 97; i <=104; i++) 
                 values.Add((char)i, false);
-            input_textBox.BackColor = Color.White;
-            resultTextBox.BackColor = Color.White;
         }
 
         private void back_button_Click(object sender, EventArgs e)
@@ -59,6 +57,19 @@ namespace LogicCalculator
                 resultTextBox.Text = lc.Calculate(values).ToString();
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void true_table_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form f = new TrueTable(input_textBox.Text, typeComboBox.SelectedIndex);
+                f.ShowDialog();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

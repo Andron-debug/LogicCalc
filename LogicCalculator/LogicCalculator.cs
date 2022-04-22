@@ -62,5 +62,31 @@ namespace LogicCalculator
             }
             return st.Peek();
         }
+        public static Dictionary<char, bool> Row(List<char> vars, int row)
+        {
+            if (vars.Count == 0) throw new Exception("Не указаны имена переменных");
+            Dictionary<char, bool> result = new Dictionary<char, bool>();
+            foreach (char c in vars)
+                result.Add(c, false);
+            if (vars.Count != 1)
+            {
+                if ((row < 0) || (row > vars.Count * vars.Count - 1)) throw new Exception("Не строки с указанным индексом не существует");
+                
+                int i = vars.Count - 1;
+                while (row != 0)
+                {
+                    if (row % 2 == 0) result[vars[i]] = false;
+                    else result[vars[i]] = true;
+                    i--;
+                    row /= 2;
+                }
+            }
+            else
+            {
+                if ((row < 0) || (row > 1)) throw new Exception("Не строки с указанным индексом не существует");
+                if (row == 1) result[vars[0]] = true;
+            }
+            return result;
+        }
     }
 }
