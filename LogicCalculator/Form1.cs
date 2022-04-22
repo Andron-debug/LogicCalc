@@ -20,14 +20,10 @@ namespace LogicCalculator
         private void Form1_Load(object sender, EventArgs e)
         {
             typeComboBox.SelectedIndex = 0;
-            values.Add('a', false);
-            values.Add('b', false);
-            values.Add('c', false);
-            values.Add('d', false);
-            values.Add('e', false);
-            values.Add('x', false);
-            values.Add('y', false);
-            values.Add('z', false);
+            for (int i = 97; i <=104; i++) 
+                values.Add((char)i, false);
+            input_textBox.BackColor = Color.White;
+            resultTextBox.BackColor = Color.White;
         }
 
         private void back_button_Click(object sender, EventArgs e)
@@ -45,12 +41,27 @@ namespace LogicCalculator
         private void Clear_button_Click(object sender, EventArgs e)
         {
             input_textBox.Text = "";
+            resultTextBox.Text = "";
         }
 
         private void valueChanged(object sender, EventArgs e)
         {
             CheckBox cb = (CheckBox)sender;
             values[cb.Text[0]] = cb.Checked;
+        }
+
+
+        private void calc_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LogicCalculator lc = new LogicCalculator(input_textBox.Text, typeComboBox.SelectedIndex);
+                resultTextBox.Text = lc.Calculate(values).ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

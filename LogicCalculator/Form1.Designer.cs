@@ -35,7 +35,7 @@ namespace LogicCalculator
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.about_button = new System.Windows.Forms.Button();
-            this.ok_button = new System.Windows.Forms.Button();
+            this.calc_button = new System.Windows.Forms.Button();
             this.Clear_button = new System.Windows.Forms.Button();
             this.back_button = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@ namespace LogicCalculator
             this.y_checkBox = new System.Windows.Forms.CheckBox();
             this.z_checkBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // typeComboBox
@@ -83,6 +84,7 @@ namespace LogicCalculator
             // 
             this.input_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.input_textBox.Enabled = false;
             this.input_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.input_textBox.Location = new System.Drawing.Point(7, 45);
             this.input_textBox.Name = "input_textBox";
@@ -91,6 +93,7 @@ namespace LogicCalculator
             // 
             // resultTextBox
             // 
+            this.resultTextBox.Enabled = false;
             this.resultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.resultTextBox.Location = new System.Drawing.Point(7, 115);
             this.resultTextBox.Name = "resultTextBox";
@@ -126,15 +129,16 @@ namespace LogicCalculator
             this.about_button.Text = "О программе";
             this.about_button.UseVisualStyleBackColor = true;
             // 
-            // ok_button
+            // calc_button
             // 
-            this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.ok_button.Location = new System.Drawing.Point(713, 367);
-            this.ok_button.Name = "ok_button";
-            this.ok_button.Size = new System.Drawing.Size(75, 60);
-            this.ok_button.TabIndex = 48;
-            this.ok_button.Text = "OK";
-            this.ok_button.UseVisualStyleBackColor = true;
+            this.calc_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
+            this.calc_button.Location = new System.Drawing.Point(462, 362);
+            this.calc_button.Name = "calc_button";
+            this.calc_button.Size = new System.Drawing.Size(171, 36);
+            this.calc_button.TabIndex = 48;
+            this.calc_button.Text = "Вычислить";
+            this.calc_button.UseVisualStyleBackColor = true;
+            this.calc_button.Click += new System.EventHandler(this.calc_button_Click);
             // 
             // Clear_button
             // 
@@ -263,7 +267,7 @@ namespace LogicCalculator
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 60);
             this.button7.TabIndex = 36;
-            this.button7.Text = "z";
+            this.button7.Text = "h";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.inputClick);
             // 
@@ -274,7 +278,7 @@ namespace LogicCalculator
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 60);
             this.button6.TabIndex = 35;
-            this.button6.Text = "y";
+            this.button6.Text = "g";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.inputClick);
             // 
@@ -285,7 +289,7 @@ namespace LogicCalculator
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(60, 60);
             this.button5.TabIndex = 34;
-            this.button5.Text = "x";
+            this.button5.Text = "f";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.inputClick);
             // 
@@ -411,9 +415,9 @@ namespace LogicCalculator
             this.x_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.x_checkBox.Location = new System.Drawing.Point(224, 424);
             this.x_checkBox.Name = "x_checkBox";
-            this.x_checkBox.Size = new System.Drawing.Size(40, 24);
+            this.x_checkBox.Size = new System.Drawing.Size(37, 24);
             this.x_checkBox.TabIndex = 56;
-            this.x_checkBox.Text = "x";
+            this.x_checkBox.Text = "f";
             this.x_checkBox.UseVisualStyleBackColor = true;
             this.x_checkBox.CheckedChanged += new System.EventHandler(this.valueChanged);
             // 
@@ -423,9 +427,9 @@ namespace LogicCalculator
             this.y_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.y_checkBox.Location = new System.Drawing.Point(224, 448);
             this.y_checkBox.Name = "y_checkBox";
-            this.y_checkBox.Size = new System.Drawing.Size(40, 24);
+            this.y_checkBox.Size = new System.Drawing.Size(41, 24);
             this.y_checkBox.TabIndex = 57;
-            this.y_checkBox.Text = "y";
+            this.y_checkBox.Text = "g";
             this.y_checkBox.UseVisualStyleBackColor = true;
             this.y_checkBox.CheckedChanged += new System.EventHandler(this.valueChanged);
             // 
@@ -437,7 +441,7 @@ namespace LogicCalculator
             this.z_checkBox.Name = "z_checkBox";
             this.z_checkBox.Size = new System.Drawing.Size(41, 24);
             this.z_checkBox.TabIndex = 58;
-            this.z_checkBox.Text = "z";
+            this.z_checkBox.Text = "h";
             this.z_checkBox.UseVisualStyleBackColor = true;
             this.z_checkBox.CheckedChanged += new System.EventHandler(this.valueChanged);
             // 
@@ -451,11 +455,22 @@ namespace LogicCalculator
             this.label2.TabIndex = 59;
             this.label2.Text = "Значения";
             // 
+            // button17
+            // 
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
+            this.button17.Location = new System.Drawing.Point(462, 404);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(171, 76);
+            this.button17.TabIndex = 60;
+            this.button17.Text = "Таблица истинности";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 507);
+            this.Controls.Add(this.button17);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.z_checkBox);
             this.Controls.Add(this.y_checkBox);
@@ -467,7 +482,7 @@ namespace LogicCalculator
             this.Controls.Add(this.button16);
             this.Controls.Add(this.a_checkBox);
             this.Controls.Add(this.about_button);
-            this.Controls.Add(this.ok_button);
+            this.Controls.Add(this.calc_button);
             this.Controls.Add(this.Clear_button);
             this.Controls.Add(this.back_button);
             this.Controls.Add(this.button15);
@@ -507,7 +522,7 @@ namespace LogicCalculator
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button about_button;
-        private System.Windows.Forms.Button ok_button;
+        private System.Windows.Forms.Button calc_button;
         private System.Windows.Forms.Button Clear_button;
         private System.Windows.Forms.Button back_button;
         private System.Windows.Forms.Button button15;
@@ -536,6 +551,7 @@ namespace LogicCalculator
         private System.Windows.Forms.CheckBox y_checkBox;
         private System.Windows.Forms.CheckBox z_checkBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button17;
     }
 }
 
